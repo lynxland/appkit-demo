@@ -33,7 +33,7 @@ require (
 	github.com/go-viper/mapstructure/v2 v2.5.0 // indirect
 	github.com/google/uuid v1.6.0 // indirect
 	github.com/jinzhu/inflection v1.0.0 // indirect
-	github.com/lynx-go/lynx-start v0.5.5
+	github.com/lynx-go/lynx-start v0.5.7
 	github.com/lynx-go/lynx-start/contrib/bunx v0.1.0
 	github.com/lynx-go/lynx/contrib/cluster v1.20.0 // indirect
 	github.com/mfridman/interpolate v0.0.2 // indirect

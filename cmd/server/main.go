@@ -20,11 +20,13 @@ import (
 	grpcapiopenapi "github.com/lynx-go/grpcapi/openapi"
 	grpcapipolicy "github.com/lynx-go/grpcapi/policy"
 	grpcapiprotopolicy "github.com/lynx-go/grpcapi/policy/protopolicy"
+	"github.com/lynx-go/grpcapi/principal"
 	grpcapiserver "github.com/lynx-go/grpcapi/server"
 	"github.com/lynx-go/lynx-start"
 	"github.com/lynx-go/lynx-start/chain"
 	"github.com/lynx-go/lynx-start/compose"
 	"github.com/lynx-go/lynx-start/idem"
+	"github.com/lynx-go/lynx-start/ratelimit"
 	"google.golang.org/genproto/googleapis/api/annotations"
 	"google.golang.org/protobuf/proto"
 	"google.golang.org/protobuf/reflect/protoreflect"
@@ -81,9 +83,24 @@ func setup(app lynx.App) error {
 	enforced := map[string]bool{
 		"/organization.v1.OrganizationService/CreateOrganization": true,
 	}
-	agg.Stages = append(agg.Stages, idem.New(idem.NewMemStore(), idem.Options{
-		Enforced: func(fullMethod string) bool { return enforced[fullMethod] },
-	}))
+	// 应用级限流（dogfood 首循环⑥采纳）：组织创建 3 次/分钟/用户
+	//（滑动窗口——固定窗口边界突刺不复现）；429 携带 RetryInfo，
+	// gateway 转 Retry-After 头。
+	rateLimiter := ratelimit.NewSlidingWindow(3, time.Minute)
+	agg.Stages = append(agg.Stages,
+		idem.New(idem.NewMemStore(), idem.Options{
+			Enforced: func(fullMethod string) bool { return enforced[fullMethod] },
+		}),
+		ratelimit.Stage(ratelimit.Options{
+			Limiter: rateLimiter,
+			Key: func(ctx context.Context, fullMethod string) string {
+				if !enforced[fullMethod] {
+					return "" // 未登记方法不限流
+				}
+				return "org-create:" + rateScope(ctx)
+			},
+		}),
+	)
 
 	// 模块贡献拦截器 Stage（audit=50 等）时接管链构建——复刻 server 默认链
 	// 的知识在 chain.DefaultChain（I-08：修复经 kernel semver 推送，
@@ -202,4 +219,12 @@ func httpRules(md protoreflect.MethodDescriptor) [][2]string {
 		add(ab, &out)
 	}
 	return out
+}
+
+// rateScope 取限流键的调用方段（principal ID，匿名回退 anon）。
+func rateScope(ctx context.Context) string {
+	if p, ok := principal.From(ctx); ok && p.ID != "" {
+		return p.ID
+	}
+	return "anon"
 }
