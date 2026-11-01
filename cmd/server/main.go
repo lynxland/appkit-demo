@@ -25,7 +25,9 @@ import (
 	"github.com/lynx-go/lynx-start"
 	"github.com/lynx-go/lynx-start/chain"
 	"github.com/lynx-go/lynx-start/compose"
+	"github.com/lynx-go/lynx-start/contrib/bunx"
 	"github.com/lynx-go/lynx-start/idem"
+	"github.com/lynx-go/lynx-start/periodic"
 	"github.com/lynx-go/lynx-start/ratelimit"
 	"google.golang.org/genproto/googleapis/api/annotations"
 	"google.golang.org/protobuf/proto"
@@ -126,6 +128,12 @@ func setup(app lynx.App) error {
 	if err != nil {
 		return err
 	}
+	// 应用级周期作业（dogfood 首循环⑧采纳）：审计保留清扫——超窗行
+	// 删除（幂等，预算内自然收束；优雅关停不腰斩在途轮次）。
+	app.Register(periodic.New("audit-retention", time.Hour, 5*time.Minute, func(ctx context.Context) error {
+		return auditSweep(ctx, cfg)
+	}, logger).RunAtStart())
+
 	app.Register(bootstrap.NewAPIService(srv, logger))
 
 	printRouteTable(installed, set)
@@ -227,4 +235,23 @@ func rateScope(ctx context.Context) string {
 		return p.ID
 	}
 	return "anon"
+}
+
+// auditSweep 删除审计表超窗行（保留 30 天；直接 SQL——审计保留是应用级
+// 运维决策，不属任何单一模块）。幂等：按 occurred_at < cutoff 删除。
+func auditSweep(ctx context.Context, cfg *config.Config) error {
+	db, err := bunx.OpenDB(cfg.Data.Database.Source, bunx.Options{})
+	if err != nil {
+		return err
+	}
+	defer func() { _ = db.Close() }()
+	cutoff := time.Now().AddDate(0, 0, -30).UTC()
+	res, err := db.NewDelete().TableExpr("audit_records").Where("occurred_at < ?", cutoff).Exec(ctx)
+	if err != nil {
+		return fmt.Errorf("audit sweep: %w", err)
+	}
+	if n, _ := res.RowsAffected(); n > 0 {
+		slog.Default().Info("audit retention swept", "rows", n)
+	}
+	return nil
 }
