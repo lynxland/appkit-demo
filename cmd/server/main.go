@@ -24,6 +24,7 @@ import (
 	"github.com/lynx-go/lynx-start"
 	"github.com/lynx-go/lynx-start/chain"
 	"github.com/lynx-go/lynx-start/compose"
+	"github.com/lynx-go/lynx-start/idem"
 	"google.golang.org/genproto/googleapis/api/annotations"
 	"google.golang.org/protobuf/proto"
 	"google.golang.org/protobuf/reflect/protoreflect"
@@ -72,6 +73,17 @@ func setup(app lynx.App) error {
 
 	// 模块贡献的认证后增强器（access 的 roles/permissions claims 等）。
 	authnOpts := grpcapiauthn.Options{Enrichers: agg.Enrichers}
+
+	// 应用级幂等执法（dogfood 首循环⑤采纳）：创建型动词挂 Idempotency-Key
+	// 语义——同键同载荷回放、异载荷拒复用、失败可重试（idem v0.5.5）。
+	// Stage 为应用所有（非模块贡献），注入 agg 后由 DefaultChain 统一入链
+	//（Order 45：authn 后 authz 前）。
+	enforced := map[string]bool{
+		"/organization.v1.OrganizationService/CreateOrganization": true,
+	}
+	agg.Stages = append(agg.Stages, idem.New(idem.NewMemStore(), idem.Options{
+		Enforced: func(fullMethod string) bool { return enforced[fullMethod] },
+	}))
 
 	// 模块贡献拦截器 Stage（audit=50 等）时接管链构建——复刻 server 默认链
 	// 的知识在 chain.DefaultChain（I-08：修复经 kernel semver 推送，
