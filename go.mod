@@ -34,7 +34,7 @@ require (
 	github.com/google/uuid v1.6.0 // indirect
 	github.com/jinzhu/inflection v1.0.0 // indirect
 	github.com/lynx-go/lynx-start v0.5.7
-	github.com/lynx-go/lynx-start/contrib/bunx v0.1.0
+	github.com/lynx-go/lynx-start/contrib/bunx v0.2.1
 	github.com/lynx-go/lynx/contrib/cluster v1.20.0 // indirect
 	github.com/mfridman/interpolate v0.0.2 // indirect
 	github.com/pelletier/go-toml/v2 v2.4.3 // indirect
