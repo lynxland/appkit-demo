@@ -9,12 +9,12 @@ import (
 	"log/slog"
 	"time"
 
-	grpcapiserver "github.com/lynx-go/grpcapi/server"
-	"github.com/lynx-go/lynx"
 	"github.com/lynxland/appkit"
 	"github.com/lynxland/appkit-demo/internal/config"
 	"github.com/lynxland/appkit/contrib/bunx/buntx"
 	"github.com/lynxland/appkit/events"
+	grpcapiserver "github.com/lynxland/grpcapi/server"
+	"github.com/lynxland/lynx"
 
 	"github.com/uptrace/bun"
 	"github.com/uptrace/bun/dialect/pgdialect"

@@ -10,8 +10,8 @@ import (
 	"github.com/lynxland/appkit-demo/modules/session/domain"
 	appsession "github.com/lynxland/appkit-demo/modules/session/internal/app"
 
-	"github.com/lynx-go/grpcapi/principal"
 	"github.com/lynxland/appkit-demo/modules/identity/domain"
+	"github.com/lynxland/grpcapi/principal"
 	"google.golang.org/genproto/googleapis/rpc/errdetails"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"

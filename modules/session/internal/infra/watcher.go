@@ -5,11 +5,11 @@ import (
 	"encoding/json"
 	"log/slog"
 
-	"github.com/lynx-go/lynx"
-	"github.com/lynx-go/lynx/eventbus"
 	domainsession "github.com/lynxland/appkit-demo/modules/session/domain"
 	appsession "github.com/lynxland/appkit-demo/modules/session/internal/app"
 	"github.com/lynxland/appkit/events"
+	"github.com/lynxland/lynx"
+	"github.com/lynxland/lynx/eventbus"
 )
 
 // PasswordChangedWatcher 订阅 identity 的事件目录（topic=module.identity，

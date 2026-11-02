@@ -8,12 +8,12 @@ import (
 	"testing"
 	"time"
 
-	"github.com/lynx-go/lynx/eventbus"
 	"github.com/lynxland/appkit-demo/modules/session/domain"
 	appsession "github.com/lynxland/appkit-demo/modules/session/internal/app"
 	"github.com/lynxland/appkit/clock"
 	"github.com/lynxland/appkit/events"
 	"github.com/lynxland/appkit/jwt"
+	"github.com/lynxland/lynx/eventbus"
 )
 
 // TestPasswordChangedWatcher 跨模块联动集成：identity 的改密事件（经

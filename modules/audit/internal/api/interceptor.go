@@ -5,11 +5,11 @@ import (
 	"log/slog"
 	"time"
 
-	"github.com/lynx-go/grpcapi/interceptor"
 	domainaudit "github.com/lynxland/appkit-demo/modules/audit/domain"
 	infraaudit "github.com/lynxland/appkit-demo/modules/audit/internal/infra"
 	"github.com/lynxland/appkit/contexts"
 	"github.com/lynxland/appkit/idgen"
+	"github.com/lynxland/grpcapi/interceptor"
 	"google.golang.org/grpc"
 )
 

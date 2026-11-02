@@ -4,11 +4,11 @@ go 1.26.8
 
 require (
 	github.com/grpc-ecosystem/grpc-gateway/v2 v2.32.0
-	github.com/lynx-go/grpcapi v0.4.0
-	github.com/lynx-go/grpcapi/genproto v0.3.0
-	github.com/lynx-go/lynx v1.20.0
-	github.com/lynx-go/lynx/contrib/schedule v1.20.0
-	github.com/lynx-go/lynx/contrib/zap v1.20.0
+	github.com/lynxland/grpcapi v0.5.0
+	github.com/lynxland/grpcapi/genproto v0.4.0
+	github.com/lynxland/lynx v1.21.0
+	github.com/lynxland/lynx/contrib/schedule v1.21.0
+	github.com/lynxland/lynx/contrib/zap v1.21.0
 	github.com/spf13/pflag v1.0.10
 	github.com/uptrace/bun v1.3.0
 	github.com/uptrace/bun/dialect/pgdialect v1.3.0
@@ -33,9 +33,9 @@ require (
 	github.com/go-viper/mapstructure/v2 v2.5.0 // indirect
 	github.com/google/uuid v1.6.0 // indirect
 	github.com/jinzhu/inflection v1.0.0 // indirect
-	github.com/lynx-go/lynx/contrib/cluster v1.20.0 // indirect
-	github.com/lynxland/appkit v0.7.0
-	github.com/lynxland/appkit/contrib/bunx v0.4.0
+	github.com/lynxland/appkit v0.8.0
+	github.com/lynxland/appkit/contrib/bunx v0.5.0
+	github.com/lynxland/lynx/contrib/cluster v1.21.0 // indirect
 	github.com/mfridman/interpolate v0.0.2 // indirect
 	github.com/pelletier/go-toml/v2 v2.4.3 // indirect
 	github.com/pressly/goose/v3 v3.29.0 // indirect

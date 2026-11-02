@@ -9,7 +9,7 @@ import (
 	organizationv1 "github.com/lynxland/appkit-demo/genproto/organization/v1"
 	apporganization "github.com/lynxland/appkit-demo/modules/organization/internal/app"
 
-	"github.com/lynx-go/grpcapi/principal"
+	"github.com/lynxland/grpcapi/principal"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 	"google.golang.org/protobuf/types/known/emptypb"

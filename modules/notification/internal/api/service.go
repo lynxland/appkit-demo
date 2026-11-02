@@ -9,7 +9,7 @@ import (
 	notificationv1 "github.com/lynxland/appkit-demo/genproto/notification/v1"
 	appnotification "github.com/lynxland/appkit-demo/modules/notification/internal/app"
 
-	"github.com/lynx-go/grpcapi/principal"
+	"github.com/lynxland/grpcapi/principal"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 	"google.golang.org/protobuf/types/known/emptypb"

@@ -7,10 +7,10 @@ import (
 	"testing"
 	"time"
 
-	"github.com/lynx-go/lynx/eventbus"
 	"github.com/lynxland/appkit-demo/modules/notification/domain"
 	appnotification "github.com/lynxland/appkit-demo/modules/notification/internal/app"
 	"github.com/lynxland/appkit/events"
+	"github.com/lynxland/lynx/eventbus"
 )
 
 // watcherRepo 是本测试的最简内存仓储（用例层需要的完整端口面）。

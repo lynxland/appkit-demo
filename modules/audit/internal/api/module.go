@@ -12,11 +12,11 @@ import (
 	"github.com/lynxland/appkit-demo/modules/audit/internal/infra/migrations"
 
 	"github.com/grpc-ecosystem/grpc-gateway/v2/runtime"
-	"github.com/lynx-go/grpcapi/interceptor"
-	"github.com/lynx-go/grpcapi/server"
-	"github.com/lynx-go/lynx"
 	"github.com/lynxland/appkit"
 	"github.com/lynxland/appkit/contrib/bunx"
+	"github.com/lynxland/grpcapi/interceptor"
+	"github.com/lynxland/grpcapi/server"
+	"github.com/lynxland/lynx"
 	"google.golang.org/grpc"
 	"google.golang.org/protobuf/reflect/protoreflect"
 )

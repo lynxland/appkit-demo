@@ -6,11 +6,11 @@ import (
 	"log/slog"
 	"slices"
 
-	"github.com/lynx-go/lynx"
-	"github.com/lynx-go/lynx/eventbus"
 	"github.com/lynxland/appkit-demo/modules/notification/domain"
 	appnotification "github.com/lynxland/appkit-demo/modules/notification/internal/app"
 	"github.com/lynxland/appkit/events"
+	"github.com/lynxland/lynx"
+	"github.com/lynxland/lynx/eventbus"
 )
 
 // Watcher 订阅 identity 与 organization 的事件目录（契约②：字符串目录

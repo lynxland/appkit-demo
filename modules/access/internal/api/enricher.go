@@ -5,8 +5,8 @@ import (
 
 	appaccess "github.com/lynxland/appkit-demo/modules/access/internal/app"
 
-	"github.com/lynx-go/grpcapi/authn"
-	"github.com/lynx-go/grpcapi/principal"
+	"github.com/lynxland/grpcapi/authn"
+	"github.com/lynxland/grpcapi/principal"
 )
 
 // PrincipalEnricher 在认证成功后往 Principal 注入 roles/permissions
