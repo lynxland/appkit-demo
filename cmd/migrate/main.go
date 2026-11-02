@@ -13,9 +13,9 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/lynx-go/lynx-start-demo/modules"
-	"github.com/lynx-go/lynx-start/goosekit"
-	"github.com/lynx-go/lynx-start/compose"
+	"github.com/lynxland/appkit-demo/modules"
+	"github.com/lynxland/appkit/compose"
+	"github.com/lynxland/appkit/goosekit"
 	"github.com/uptrace/bun/driver/pgdriver"
 )
 

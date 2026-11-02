@@ -8,10 +8,10 @@ import (
 	"errors"
 	"time"
 
-	"github.com/lynx-go/lynx-start-demo/modules/access/domain"
-	"github.com/lynx-go/lynx-start-demo/modules/identity/domain"
+	"github.com/lynxland/appkit-demo/modules/access/domain"
+	"github.com/lynxland/appkit-demo/modules/identity/domain"
 
-	"github.com/lynx-go/lynx-start/contrib/bunx/buntx"
+	"github.com/lynxland/appkit/contrib/bunx/buntx"
 	"github.com/uptrace/bun"
 )
 

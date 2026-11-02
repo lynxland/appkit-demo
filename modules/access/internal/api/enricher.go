@@ -3,7 +3,7 @@ package access
 import (
 	"context"
 
-	appaccess "github.com/lynx-go/lynx-start-demo/modules/access/internal/app"
+	appaccess "github.com/lynxland/appkit-demo/modules/access/internal/app"
 
 	"github.com/lynx-go/grpcapi/authn"
 	"github.com/lynx-go/grpcapi/principal"

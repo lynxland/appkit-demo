@@ -5,11 +5,11 @@ import (
 	"encoding/json"
 	"errors"
 
-	auditv1 "github.com/lynx-go/lynx-start-demo/genproto/audit/v1"
-	appaudit "github.com/lynx-go/lynx-start-demo/modules/audit/internal/app"
+	auditv1 "github.com/lynxland/appkit-demo/genproto/audit/v1"
+	appaudit "github.com/lynxland/appkit-demo/modules/audit/internal/app"
 
-	domainaudit "github.com/lynx-go/lynx-start-demo/modules/audit/domain"
-	"github.com/lynx-go/lynx-start/contexts"
+	domainaudit "github.com/lynxland/appkit-demo/modules/audit/domain"
+	"github.com/lynxland/appkit/contexts"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 	"google.golang.org/protobuf/types/known/timestamppb"

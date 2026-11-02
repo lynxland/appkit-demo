@@ -7,8 +7,8 @@ import (
 	"encoding/json"
 	"time"
 
-	"github.com/lynx-go/lynx-start-demo/modules/notification/domain"
-	"github.com/lynx-go/lynx-start/contrib/bunx/buntx"
+	"github.com/lynxland/appkit-demo/modules/notification/domain"
+	"github.com/lynxland/appkit/contrib/bunx/buntx"
 
 	"github.com/uptrace/bun"
 )

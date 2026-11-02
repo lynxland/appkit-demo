@@ -4,12 +4,12 @@ import (
 	"context"
 	"errors"
 
-	appidentity "github.com/lynx-go/lynx-start-demo/modules/identity/internal/app"
+	appidentity "github.com/lynxland/appkit-demo/modules/identity/internal/app"
 
 	"github.com/lynx-go/grpcapi/authn"
 	"github.com/lynx-go/grpcapi/principal"
-	"github.com/lynx-go/lynx-start/clock"
-	"github.com/lynx-go/lynx-start/jwt"
+	"github.com/lynxland/appkit/clock"
+	"github.com/lynxland/appkit/jwt"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 )

@@ -419,9 +419,9 @@ const file_notification_v1_notification_proto_rawDesc = "" +
 	"\x14MarkNotificationRead\x12,.notification.v1.MarkNotificationReadRequest\x1a\x16.google.protobuf.Empty\"@\xda\xf0\x19\x04\n" +
 	"\x02 \x01\x82\xd3\xe4\x93\x022:\x01*\"-/v1/notifications/{notification_id}:mark-read\x12\xb3\x01\n" +
 	"\x18MarkAllNotificationsRead\x120.notification.v1.MarkAllNotificationsReadRequest\x1a1.notification.v1.MarkAllNotificationsReadResponse\"2\xda\xf0\x19\x04\n" +
-	"\x02 \x01\x82\xd3\xe4\x93\x02$:\x01*\"\x1f/v1/notifications:mark-all-readBZ\xca\xf0\x19\n" +
+	"\x02 \x01\x82\xd3\xe4\x93\x02$:\x01*\"\x1f/v1/notifications:mark-all-readBW\xca\xf0\x19\n" +
 	"\n" +
-	"\x06public \x02ZJgithub.com/lynx-go/lynx-start-demo/genproto/notification/v1;notificationv1b\x06proto3"
+	"\x06public \x02ZGgithub.com/lynxland/appkit-demo/genproto/notification/v1;notificationv1b\x06proto3"
 
 var (
 	file_notification_v1_notification_proto_rawDescOnce sync.Once

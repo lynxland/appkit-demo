@@ -8,9 +8,9 @@ import (
 	"errors"
 	"time"
 
-	"github.com/lynx-go/lynx-start-demo/modules/organization/domain"
-	"github.com/lynx-go/lynx-start-demo/modules/task/domain"
-	"github.com/lynx-go/lynx-start/contrib/bunx/buntx"
+	"github.com/lynxland/appkit-demo/modules/organization/domain"
+	"github.com/lynxland/appkit-demo/modules/task/domain"
+	"github.com/lynxland/appkit/contrib/bunx/buntx"
 
 	"github.com/uptrace/bun"
 )

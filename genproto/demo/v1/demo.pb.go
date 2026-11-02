@@ -428,9 +428,9 @@ const file_demo_v1_demo_proto_rawDesc = "" +
 	"RenameItem\x12\x1a.demo.v1.RenameItemRequest\x1a\r.demo.v1.Item\"\x1e\x82\xd3\xe4\x93\x02\x18:\x01*2\x13/v1/demo/items/{id}\x12]\n" +
 	"\n" +
 	"DeleteItem\x12\x1a.demo.v1.DeleteItemRequest\x1a\x16.google.protobuf.Empty\"\x1b\x82\xd3\xe4\x93\x02\x15*\x13/v1/demo/items/{id}\x1a\b\xd2\xf0\x19\x04\n" +
-	"\x02\x18\x01BJ\xca\xf0\x19\n" +
+	"\x02\x18\x01BG\xca\xf0\x19\n" +
 	"\n" +
-	"\x06public \x02Z:github.com/lynx-go/lynx-start-demo/genproto/demo/v1;demov1b\x06proto3"
+	"\x06public \x02Z7github.com/lynxland/appkit-demo/genproto/demo/v1;demov1b\x06proto3"
 
 var (
 	file_demo_v1_demo_proto_rawDescOnce sync.Once

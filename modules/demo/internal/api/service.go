@@ -5,15 +5,15 @@ import (
 	"context"
 	"errors"
 
-	demov1 "github.com/lynx-go/lynx-start-demo/genproto/demo/v1"
-	appdemo "github.com/lynx-go/lynx-start-demo/modules/demo/internal/app"
+	demov1 "github.com/lynxland/appkit-demo/genproto/demo/v1"
+	appdemo "github.com/lynxland/appkit-demo/modules/demo/internal/app"
 
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 	"google.golang.org/protobuf/types/known/emptypb"
 	"google.golang.org/protobuf/types/known/timestamppb"
 
-	"github.com/lynx-go/lynx-start-demo/modules/demo/domain"
+	"github.com/lynxland/appkit-demo/modules/demo/domain"
 )
 
 // Service 实现 DemoService（薄转发：参数校验交给 protovalidate，业务在用例层）。

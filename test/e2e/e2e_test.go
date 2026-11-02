@@ -2,7 +2,7 @@
 // testkit v0.2.0）：七模块在隔离测试库上装配，经 bufconn gRPC 与
 // httptest REST 走真实链路——register → login → Bearer me → 建组织 →
 // 组织挂靠任务 → 改密事件联动吊销。取代 docker+curl 冒烟的不可回归
-// 形态；PG 门控（LYNXSTART_TEST_PG_DSN）。
+// 形态；PG 门控（APPKIT_TEST_PG_DSN）。
 package e2e
 
 import (
@@ -14,12 +14,12 @@ import (
 	"strings"
 	"testing"
 
-	identityv1 "github.com/lynx-go/lynx-start-demo/genproto/identity/v1"
-	orgv1 "github.com/lynx-go/lynx-start-demo/genproto/organization/v1"
-	sessionv1 "github.com/lynx-go/lynx-start-demo/genproto/session/v1"
-	taskv1 "github.com/lynx-go/lynx-start-demo/genproto/task/v1"
-	"github.com/lynx-go/lynx-start-demo/modules"
-	"github.com/lynx-go/lynx-start/contrib/bunx/testkit"
+	identityv1 "github.com/lynxland/appkit-demo/genproto/identity/v1"
+	orgv1 "github.com/lynxland/appkit-demo/genproto/organization/v1"
+	sessionv1 "github.com/lynxland/appkit-demo/genproto/session/v1"
+	taskv1 "github.com/lynxland/appkit-demo/genproto/task/v1"
+	"github.com/lynxland/appkit-demo/modules"
+	"github.com/lynxland/appkit/contrib/bunx/testkit"
 	"google.golang.org/grpc/metadata"
 )
 

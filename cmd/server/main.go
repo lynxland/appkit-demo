@@ -1,4 +1,4 @@
-// lynx-start-demo 服务入口：装配已安装的 lynx-mods 模块并托管生命周期。
+// appkit-demo 服务入口：装配已安装的 lynx-mods 模块并托管生命周期。
 // 本文件由 lynx-mods init 生成，后续基本不再变——模块增减只改 modules/modules.go。
 package main
 
@@ -22,25 +22,25 @@ import (
 	grpcapiprotopolicy "github.com/lynx-go/grpcapi/policy/protopolicy"
 	"github.com/lynx-go/grpcapi/principal"
 	grpcapiserver "github.com/lynx-go/grpcapi/server"
-	"github.com/lynx-go/lynx-start"
-	"github.com/lynx-go/lynx-start/chain"
-	"github.com/lynx-go/lynx-start/compose"
-	"github.com/lynx-go/lynx-start/contrib/bunx"
-	"github.com/lynx-go/lynx-start/idem"
-	"github.com/lynx-go/lynx-start/periodic"
-	"github.com/lynx-go/lynx-start/ratelimit"
+	"github.com/lynxland/appkit"
+	"github.com/lynxland/appkit/chain"
+	"github.com/lynxland/appkit/compose"
+	"github.com/lynxland/appkit/contrib/bunx"
+	"github.com/lynxland/appkit/idem"
+	"github.com/lynxland/appkit/periodic"
+	"github.com/lynxland/appkit/ratelimit"
 	"google.golang.org/genproto/googleapis/api/annotations"
 	"google.golang.org/protobuf/proto"
 	"google.golang.org/protobuf/reflect/protoreflect"
 
-	"github.com/lynx-go/lynx-start-demo/internal/bootstrap"
-	"github.com/lynx-go/lynx-start-demo/internal/config"
-	"github.com/lynx-go/lynx-start-demo/modules"
+	"github.com/lynxland/appkit-demo/internal/bootstrap"
+	"github.com/lynxland/appkit-demo/internal/config"
+	"github.com/lynxland/appkit-demo/modules"
 )
 
 func main() {
 	runner := lynx.NewRunner(setup,
-		lynx.WithName("lynx-start-demo"),
+		lynx.WithName("appkit-demo"),
 		lynx.WithShutdownTimeout(30*time.Second),
 		lynx.WithBindConfigFunc(config.BindConfig),
 		lynx.WithLoggerProvider(func(app lynx.AppContext) (*slog.Logger, error) {
@@ -105,7 +105,7 @@ func setup(app lynx.App) error {
 	)
 
 	// 模块贡献拦截器 Stage（audit=50 等）时接管链构建——复刻 server 默认链
-	// 的知识在 chain.DefaultChain（I-08：修复经 kernel semver 推送，
+	// 的知识在 chain.DefaultChain（I-08：修复经 appkit semver 推送，
 	// scaffold 生成物不再持有这段易错逻辑）。
 	chain, err := chain.DefaultChain(logger, set, agg, authnOpts)
 	if err != nil {
@@ -122,7 +122,7 @@ func setup(app lynx.App) error {
 		GRPCAddr:             cfg.Server.GRPCAddr,
 		HTTPAddr:             cfg.Server.HTTPAddr,
 		AllowNoAuthenticator: len(agg.Authenticators) == 0,
-		OpenAPI:              &grpcapiopenapi.Info{Title: "lynx-start-demo", Version: "v1"},
+		OpenAPI:              &grpcapiopenapi.Info{Title: "appkit-demo", Version: "v1"},
 		Logger:               logger,
 	})
 	if err != nil {
@@ -149,7 +149,7 @@ func setup(app lynx.App) error {
 	return nil
 }
 
-func buildPolicies(ctx context.Context, installed []kernel.InstalledModule) (*grpcapipolicy.Set, error) {
+func buildPolicies(ctx context.Context, installed []appkit.InstalledModule) (*grpcapipolicy.Set, error) {
 	files := compose.PolicyFiles(compose.Descriptors(installed))
 	if len(files) == 0 {
 		return grpcapipolicy.NewSet()
@@ -163,7 +163,7 @@ func buildPolicies(ctx context.Context, installed []kernel.InstalledModule) (*gr
 // printRouteTable 启动期打印 HTTP 路由表（proto 的 google.api.http 注解驱动），
 // 免去翻 proto 找路径：方法、路径、RPC 全名与认证要求一屏可见。手写的
 // ExtraRoutes 与 gRPC 面（:9060）不在此列。
-func printRouteTable(installed []kernel.InstalledModule, set *grpcapipolicy.Set) {
+func printRouteTable(installed []appkit.InstalledModule, set *grpcapipolicy.Set) {
 	type routeRow struct{ method, path, rpc, auth string }
 	var rows []routeRow
 	for _, fd := range compose.PolicyFiles(compose.Descriptors(installed)) {

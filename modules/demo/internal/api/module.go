@@ -3,23 +3,23 @@ package demo
 import (
 	"context"
 
-	demov1 "github.com/lynx-go/lynx-start-demo/genproto/demo/v1"
-	"github.com/lynx-go/lynx-start-demo/modules/demo/domain"
-	appdemo "github.com/lynx-go/lynx-start-demo/modules/demo/internal/app"
-	infrademo "github.com/lynx-go/lynx-start-demo/modules/demo/internal/infra"
-	"github.com/lynx-go/lynx-start-demo/modules/demo/internal/infra/migrations"
+	demov1 "github.com/lynxland/appkit-demo/genproto/demo/v1"
+	"github.com/lynxland/appkit-demo/modules/demo/domain"
+	appdemo "github.com/lynxland/appkit-demo/modules/demo/internal/app"
+	infrademo "github.com/lynxland/appkit-demo/modules/demo/internal/infra"
+	"github.com/lynxland/appkit-demo/modules/demo/internal/infra/migrations"
 
 	"github.com/grpc-ecosystem/grpc-gateway/v2/runtime"
 	"github.com/lynx-go/grpcapi/server"
-	"github.com/lynx-go/lynx-start"
-	"github.com/lynx-go/lynx-start/contrib/bunx"
+	"github.com/lynxland/appkit"
+	"github.com/lynxland/appkit/contrib/bunx"
 	"google.golang.org/grpc"
 	"google.golang.org/protobuf/reflect/protoreflect"
 )
 
 // Module 返回静态装配描述（策略描述符来自本地 buf 生成物）。
-func Module() kernel.Module {
-	return kernel.Module{
+func Module() appkit.Module {
+	return appkit.Module{
 		Name:        "demo",
 		Description: "样例模块：单实体 CRUD，验证装配管线（不承载业务语义）",
 		Policies:    []protoreflect.FileDescriptor{demov1.File_demo_v1_demo_proto},
@@ -34,10 +34,10 @@ func Module() kernel.Module {
 
 // Assemble 构造动态装配产物：仓储 → 用例 → 处理器 → 注册。
 // 源码归应用所有：按需修改（例如换掉 newID、追加事件订阅）。
-func Assemble(deps kernel.Deps) (kernel.Assembly, error) {
+func Assemble(deps appkit.Deps) (appkit.Assembly, error) {
 	uc := appdemo.New(infrademo.NewRepository(bunx.MustDB(deps)), deps.Tx, deps.Events)
 	svc := NewService(uc)
-	return kernel.Assembly{
+	return appkit.Assembly{
 		Registrations: []server.Registration{newRegistration(svc)},
 	}, nil
 }

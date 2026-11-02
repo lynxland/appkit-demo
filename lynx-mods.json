@@ -1,7 +1,7 @@
 {
   "schema": 1,
-  "name": "lynx-start-demo",
-  "modulePath": "github.com/lynx-go/lynx-start-demo",
+  "name": "appkit-demo",
+  "modulePath": "github.com/lynxland/appkit-demo",
   "registry": "/home/qiulin/workspace/qiulin/lynx-mods",
   "modules": [
     {

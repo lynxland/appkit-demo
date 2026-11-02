@@ -6,10 +6,10 @@ import (
 	"time"
 
 	"github.com/lynx-go/grpcapi/interceptor"
-	domainaudit "github.com/lynx-go/lynx-start-demo/modules/audit/domain"
-	infraaudit "github.com/lynx-go/lynx-start-demo/modules/audit/internal/infra"
-	"github.com/lynx-go/lynx-start/contexts"
-	"github.com/lynx-go/lynx-start/idgen"
+	domainaudit "github.com/lynxland/appkit-demo/modules/audit/domain"
+	infraaudit "github.com/lynxland/appkit-demo/modules/audit/internal/infra"
+	"github.com/lynxland/appkit/contexts"
+	"github.com/lynxland/appkit/idgen"
 	"google.golang.org/grpc"
 )
 

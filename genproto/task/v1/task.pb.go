@@ -516,9 +516,9 @@ const file_task_v1_task_proto_rawDesc = "" +
 	"\x02 \x01\x82\xd3\xe4\x93\x02A:\x01*\"</v1/organizations/{organization_id}/tasks/{task_id}:complete\x12\x85\x01\n" +
 	"\n" +
 	"DeleteTask\x12\x1a.task.v1.DeleteTaskRequest\x1a\x16.google.protobuf.Empty\"C\xda\xf0\x19\x04\n" +
-	"\x02 \x01\x82\xd3\xe4\x93\x025*3/v1/organizations/{organization_id}/tasks/{task_id}BJ\xca\xf0\x19\n" +
+	"\x02 \x01\x82\xd3\xe4\x93\x025*3/v1/organizations/{organization_id}/tasks/{task_id}BG\xca\xf0\x19\n" +
 	"\n" +
-	"\x06public \x02Z:github.com/lynx-go/lynx-start-demo/genproto/task/v1;taskv1b\x06proto3"
+	"\x06public \x02Z7github.com/lynxland/appkit-demo/genproto/task/v1;taskv1b\x06proto3"
 
 var (
 	file_task_v1_task_proto_rawDescOnce sync.Once

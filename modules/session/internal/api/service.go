@@ -6,19 +6,19 @@ import (
 	"context"
 	"errors"
 
-	sessionv1 "github.com/lynx-go/lynx-start-demo/genproto/session/v1"
-	"github.com/lynx-go/lynx-start-demo/modules/session/domain"
-	appsession "github.com/lynx-go/lynx-start-demo/modules/session/internal/app"
+	sessionv1 "github.com/lynxland/appkit-demo/genproto/session/v1"
+	"github.com/lynxland/appkit-demo/modules/session/domain"
+	appsession "github.com/lynxland/appkit-demo/modules/session/internal/app"
 
 	"github.com/lynx-go/grpcapi/principal"
-	"github.com/lynx-go/lynx-start-demo/modules/identity/domain"
+	"github.com/lynxland/appkit-demo/modules/identity/domain"
 	"google.golang.org/genproto/googleapis/rpc/errdetails"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 	"google.golang.org/protobuf/types/known/emptypb"
 	"google.golang.org/protobuf/types/known/timestamppb"
 
-	"github.com/lynx-go/lynx-start/errcode"
+	"github.com/lynxland/appkit/errcode"
 )
 
 // Service 实现 SessionService（薄转发：业务在用例层）。

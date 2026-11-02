@@ -7,9 +7,9 @@ import (
 	"encoding/json"
 	"time"
 
-	domainaudit "github.com/lynx-go/lynx-start-demo/modules/audit/domain"
-	"github.com/lynx-go/lynx-start/contrib/bunx/buntx"
-	"github.com/lynx-go/lynx-start/crud"
+	domainaudit "github.com/lynxland/appkit-demo/modules/audit/domain"
+	"github.com/lynxland/appkit/contrib/bunx/buntx"
+	"github.com/lynxland/appkit/crud"
 	"github.com/uptrace/bun"
 )
 

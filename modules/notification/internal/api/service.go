@@ -6,8 +6,8 @@ import (
 	"context"
 	"errors"
 
-	notificationv1 "github.com/lynx-go/lynx-start-demo/genproto/notification/v1"
-	appnotification "github.com/lynx-go/lynx-start-demo/modules/notification/internal/app"
+	notificationv1 "github.com/lynxland/appkit-demo/genproto/notification/v1"
+	appnotification "github.com/lynxland/appkit-demo/modules/notification/internal/app"
 
 	"github.com/lynx-go/grpcapi/principal"
 	"google.golang.org/grpc/codes"
@@ -15,7 +15,7 @@ import (
 	"google.golang.org/protobuf/types/known/emptypb"
 	"google.golang.org/protobuf/types/known/timestamppb"
 
-	"github.com/lynx-go/lynx-start-demo/modules/notification/domain"
+	"github.com/lynxland/appkit-demo/modules/notification/domain"
 )
 
 // Service 实现 NotificationService（薄转发：收件人一律取自认证语境，

@@ -6,10 +6,10 @@ import (
 	"testing"
 	"time"
 
-	domainaudit "github.com/lynx-go/lynx-start-demo/modules/audit/domain"
-	"github.com/lynx-go/lynx-start-demo/modules/audit/internal/infra/migrations"
-	"github.com/lynx-go/lynx-start/contrib/bunx/testutil"
-	"github.com/lynx-go/lynx-start/crud"
+	domainaudit "github.com/lynxland/appkit-demo/modules/audit/domain"
+	"github.com/lynxland/appkit-demo/modules/audit/internal/infra/migrations"
+	"github.com/lynxland/appkit/contrib/bunx/testutil"
+	"github.com/lynxland/appkit/crud"
 )
 
 func newRec(t *testing.T, id, actorID, action string, at time.Time) *domainaudit.Record {

@@ -6,9 +6,9 @@ import (
 	"context"
 	"errors"
 
-	accessv1 "github.com/lynx-go/lynx-start-demo/genproto/access/v1"
-	"github.com/lynx-go/lynx-start-demo/modules/access/domain"
-	appaccess "github.com/lynx-go/lynx-start-demo/modules/access/internal/app"
+	accessv1 "github.com/lynxland/appkit-demo/genproto/access/v1"
+	"github.com/lynxland/appkit-demo/modules/access/domain"
+	appaccess "github.com/lynxland/appkit-demo/modules/access/internal/app"
 
 	"github.com/lynx-go/grpcapi/principal"
 	"google.golang.org/genproto/googleapis/rpc/errdetails"
@@ -16,7 +16,7 @@ import (
 	"google.golang.org/grpc/status"
 	"google.golang.org/protobuf/types/known/emptypb"
 
-	"github.com/lynx-go/lynx-start/errcode"
+	"github.com/lynxland/appkit/errcode"
 )
 
 // Service 实现 AccessService（薄转发：业务在用例层）。

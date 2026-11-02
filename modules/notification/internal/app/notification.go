@@ -9,9 +9,9 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/lynx-go/lynx-start-demo/modules/notification/domain"
-	"github.com/lynx-go/lynx-start/crud"
-	"github.com/lynx-go/lynx-start/idgen"
+	"github.com/lynxland/appkit-demo/modules/notification/domain"
+	"github.com/lynxland/appkit/crud"
+	"github.com/lynxland/appkit/idgen"
 )
 
 // UseCase 是通知模块的用例集。

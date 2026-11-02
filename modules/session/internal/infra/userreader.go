@@ -6,7 +6,7 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/lynx-go/lynx-start-demo/modules/identity/domain"
+	"github.com/lynxland/appkit-demo/modules/identity/domain"
 	"github.com/uptrace/bun"
 )
 

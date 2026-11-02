@@ -6,9 +6,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/lynx-go/lynx-start-demo/modules/identity/domain"
-	"github.com/lynx-go/lynx-start-demo/modules/identity/internal/infra/migrations"
-	"github.com/lynx-go/lynx-start/contrib/bunx/testutil"
+	"github.com/lynxland/appkit-demo/modules/identity/domain"
+	"github.com/lynxland/appkit-demo/modules/identity/internal/infra/migrations"
+	"github.com/lynxland/appkit/contrib/bunx/testutil"
 )
 
 func newTestUser(t *testing.T, email string) *identity.User {

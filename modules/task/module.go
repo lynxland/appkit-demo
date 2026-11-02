@@ -4,13 +4,13 @@
 package task
 
 import (
-	"github.com/lynx-go/lynx-start"
+	"github.com/lynxland/appkit"
 
-	api "github.com/lynx-go/lynx-start-demo/modules/task/internal/api"
+	api "github.com/lynxland/appkit-demo/modules/task/internal/api"
 )
 
 // Module 转发模块静态装配描述。
-func Module() kernel.Module { return api.Module() }
+func Module() appkit.Module { return api.Module() }
 
 // Assemble 转发模块动态装配。
-func Assemble(deps kernel.Deps) (kernel.Assembly, error) { return api.Assemble(deps) }
+func Assemble(deps appkit.Deps) (appkit.Assembly, error) { return api.Assemble(deps) }

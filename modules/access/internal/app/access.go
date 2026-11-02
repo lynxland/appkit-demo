@@ -11,11 +11,11 @@ import (
 	"sort"
 	"time"
 
-	"github.com/lynx-go/lynx-start-demo/modules/access/domain"
-	"github.com/lynx-go/lynx-start-demo/modules/identity/domain"
-	"github.com/lynx-go/lynx-start/events"
-	"github.com/lynx-go/lynx-start/idgen"
-	"github.com/lynx-go/lynx-start/uow"
+	"github.com/lynxland/appkit-demo/modules/access/domain"
+	"github.com/lynxland/appkit-demo/modules/identity/domain"
+	"github.com/lynxland/appkit/events"
+	"github.com/lynxland/appkit/idgen"
+	"github.com/lynxland/appkit/uow"
 )
 
 // UseCase 是授权模块的用例集。

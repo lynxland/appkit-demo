@@ -5,9 +5,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/lynx-go/lynx-start-demo/modules/session/domain"
-	"github.com/lynx-go/lynx-start-demo/modules/session/internal/infra/migrations"
-	"github.com/lynx-go/lynx-start/contrib/bunx/testutil"
+	"github.com/lynxland/appkit-demo/modules/session/domain"
+	"github.com/lynxland/appkit-demo/modules/session/internal/infra/migrations"
+	"github.com/lynxland/appkit/contrib/bunx/testutil"
 )
 
 var t0 = time.Date(2026, 1, 1, 0, 0, 0, 0, time.UTC)

@@ -6,9 +6,9 @@ import (
 	"context"
 	"errors"
 
-	identityv1 "github.com/lynx-go/lynx-start-demo/genproto/identity/v1"
-	"github.com/lynx-go/lynx-start-demo/modules/identity/domain"
-	appidentity "github.com/lynx-go/lynx-start-demo/modules/identity/internal/app"
+	identityv1 "github.com/lynxland/appkit-demo/genproto/identity/v1"
+	"github.com/lynxland/appkit-demo/modules/identity/domain"
+	appidentity "github.com/lynxland/appkit-demo/modules/identity/internal/app"
 
 	"github.com/lynx-go/grpcapi/principal"
 	"google.golang.org/genproto/googleapis/rpc/errdetails"
@@ -17,7 +17,7 @@ import (
 	"google.golang.org/protobuf/types/known/emptypb"
 	"google.golang.org/protobuf/types/known/timestamppb"
 
-	"github.com/lynx-go/lynx-start/errcode"
+	"github.com/lynxland/appkit/errcode"
 )
 
 // Service 实现 IdentityService（薄转发：业务在用例层）。
