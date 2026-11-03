@@ -36,7 +36,7 @@ func Module() appkit.Module {
 			Defaults: map[string]any{
 				"secret":    appidentity.DefaultDevSecret,
 				"token_ttl": "30m",
-				"issuer":    "lynx-mods",
+				"issuer":    "lynx-start",
 			},
 		},
 	}

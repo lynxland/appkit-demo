@@ -43,7 +43,7 @@ func Module() appkit.Module {
 				"secret":      appsession.DefaultDevSecret,
 				"access_ttl":  "15m",
 				"refresh_ttl": "720h",
-				"issuer":      "lynx-mods",
+				"issuer":      "lynx-start",
 			},
 		},
 	}

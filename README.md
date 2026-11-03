@@ -1,11 +1,11 @@
 # appkit-demo
 
-基于 [appkit](https://github.com/lynxland/appkit) 与 [lynx-mods](https://github.com/lynxland/lynx-mods) 模块基建的 Go 应用：
+基于 [appkit](https://github.com/lynxland/appkit) 与 [lynx-start](https://github.com/lynxland/lynx-start) 模块基建的 Go 应用：
 lynx 运行时 + grpcapi 双面（gRPC + HTTP gateway）+ bun/Postgres + goose 迁移。
 
 ## 已装模块
 
-见 `lynx-mods.json`（安装清单）与 `modules/modules.go`（装配登记）。
+见 `lynx-start.json`（安装清单）与 `modules/modules.go`（装配登记）。
 
 ## 快速开始
 
@@ -22,7 +22,7 @@ mise run dev          # gRPC :9060 / HTTP :8080
 ## 添加模块
 
 ```bash
-lynx-mods add <module>
+lynx-start add <module>
 ```
 
 ## 配置

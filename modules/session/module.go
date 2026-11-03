@@ -1,4 +1,4 @@
-// lynx-mods:bridge —— 由 add 生成（remove 删除）。转发装配入口：
+// lynx-start:bridge —— 由 add 生成（remove 删除）。转发装配入口：
 // modules/<name>/internal 受 Go 可见性保护，应用唯一入口是本包。
 // 改模块装配请改 internal/api；本文件属注入物，不参与 update 合并。
 package session
